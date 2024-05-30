@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<launch>
+    <include file="$(find assignment_2_2023)/launch/assignment1.launch" />
+    <node pkg="monitoring_package" type="planning_client.py" name="planning_client" />
+    <node pkg="monitoring_package" type="last_target.py" name="last_target" args="" />
+    <node pkg="monitoring_package" type="distance_from_client.py" name="distance_from_client" args=""/>
+</launch>
+
