@@ -12,9 +12,10 @@ dist = None
 
 def getGoal(x_current, y_current, v_current_x, v_current_y):
     """
-         Calculates and returns the following:
-             1. the distance between pose_current and pose_target. 
-             2. average velocity of the robot 
+    Calculates and returns the following:
+
+        1. The distance between pose_current and pose_target.
+        2. The average velocity of the robot.
     """
 
     global v_avg_x, v_avg_y
@@ -36,7 +37,7 @@ def getGoal(x_current, y_current, v_current_x, v_current_y):
 
 def currentPoseHandler(data):
     """
-        Handler to the subscriber current_pose_velocity_publisher. It receives current pose and velocity of robot and uses GetGoal function to update distance, v_average global variables
+        Handler for the subscriber `current_pose_velocity_publisher`, which receives the robot's current pose and velocity, and uses the `GetGoal` function to update the global variables `distance` and `v_average`.
     """
     global v_avg_x, v_avg_y, dist
     x_current = data.x
@@ -47,7 +48,7 @@ def currentPoseHandler(data):
 
 def getDistanceAndAvgVelocity(request):
     """
-        triggers when a call to the service is made. returns global variables which store average velocity and distance to target.
+        It is triggered when a call to the service is made and returns the global variables that store the average velocity and distance to the target.
     """
     global v_avg_x, v_avg_y, dist
     return distanceAndAverageVelocityResponse(dist, v_avg_x, v_avg_y)

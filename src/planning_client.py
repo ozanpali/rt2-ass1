@@ -13,7 +13,7 @@ poseVelocityPublisher = None
 poseVelocitySubscriber = None
 def planning_client():
     """
-	This function is responsible to send goal pose to the action server. 
+        This function handles the task of transmitting the goal pose to the action server.
     """
     client = actionlib.SimpleActionClient('/reaching_goal', assignment_2_2023.msg.PlanningAction)
     print("planning_client waiting for server")
@@ -29,7 +29,7 @@ def planning_client():
 
 def publishPoseAndVelocity(msg):
     """
-        Handler for the subscriber for /odom. This function receives odom.message and publishes pose and velocity from it on the topic current_pose_velocity_publisher.
+        This function serves as the handler for the subscriber listening to the topic `/odom`. It receives messages from `odom`, extracts pose and velocity data, and publishes them on the topic `current_pose_velocity_publisher`.
     """
     poseVelocityMsg = poseVelocity()
     poseVelocityMsg.x = msg.pose.pose.position.x
@@ -40,7 +40,7 @@ def publishPoseAndVelocity(msg):
 
 def initialize_publisher_subscriber():
     """
-        initializes the publishr and subscriber and stores them in a global variable.
+        Initializes the publisher and subscriber and stores them in a global variable.
     """
     global poseVelocityPublisher, poseVelocitySubscriber
     poseVelocityPublisher = rospy.Publisher('current_pose_velocity_publisher', poseVelocity)

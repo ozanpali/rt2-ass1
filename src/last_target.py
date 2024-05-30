@@ -6,7 +6,7 @@ lastTarget = None
 
 def getLastTarget(request):
     """
-        Fetches target pose from the parameter server and returns when service is called.
+        Fetches the target pose from the parameter server and returns it when the service is called.
     """
     global lastTarget
     xGoal = rospy.get_param('des_pos_x')
