@@ -41,7 +41,7 @@
 
 <div class="viewcode-block" id="getLastTarget"><a class="viewcode-back" href="../index.html#last_target.getLastTarget">[docs]</a><span class="k">def</span> <span class="nf">getLastTarget</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Fetches target pose from the parameter server and returns when service is called.</span>
+<span class="sd">        Fetches the target pose from the parameter server and returns it when the service is called.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">global</span> <span class="n">lastTarget</span>
     <span class="n">xGoal</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">get_param</span><span class="p">(</span><span class="s1">&#39;des_pos_x&#39;</span><span class="p">)</span>

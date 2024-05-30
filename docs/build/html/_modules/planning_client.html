@@ -48,7 +48,7 @@
 <span class="n">poseVelocitySubscriber</span> <span class="o">=</span> <span class="kc">None</span>
 <div class="viewcode-block" id="planning_client"><a class="viewcode-back" href="../index.html#planning_client.planning_client">[docs]</a><span class="k">def</span> <span class="nf">planning_client</span><span class="p">():</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">	This function is responsible to send goal pose to the action server. </span>
+<span class="sd">        This function handles the task of transmitting the goal pose to the action server.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">client</span> <span class="o">=</span> <span class="n">actionlib</span><span class="o">.</span><span class="n">SimpleActionClient</span><span class="p">(</span><span class="s1">&#39;/reaching_goal&#39;</span><span class="p">,</span> <span class="n">assignment_2_2023</span><span class="o">.</span><span class="n">msg</span><span class="o">.</span><span class="n">PlanningAction</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;planning_client waiting for server&quot;</span><span class="p">)</span>
@@ -64,7 +64,7 @@
 
 <div class="viewcode-block" id="publishPoseAndVelocity"><a class="viewcode-back" href="../index.html#planning_client.publishPoseAndVelocity">[docs]</a><span class="k">def</span> <span class="nf">publishPoseAndVelocity</span><span class="p">(</span><span class="n">msg</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Handler for the subscriber for /odom. This function receives odom.message and publishes pose and velocity from it on the topic current_pose_velocity_publisher.</span>
+<span class="sd">        This function serves as the handler for the subscriber listening to the topic `/odom`. It receives messages from `odom`, extracts pose and velocity data, and publishes them on the topic `current_pose_velocity_publisher`.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">poseVelocityMsg</span> <span class="o">=</span> <span class="n">poseVelocity</span><span class="p">()</span>
     <span class="n">poseVelocityMsg</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">msg</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">x</span>
@@ -75,7 +75,7 @@
 
 <div class="viewcode-block" id="initialize_publisher_subscriber"><a class="viewcode-back" href="../index.html#planning_client.initialize_publisher_subscriber">[docs]</a><span class="k">def</span> <span class="nf">initialize_publisher_subscriber</span><span class="p">():</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        initializes the publishr and subscriber and stores them in a global variable.</span>
+<span class="sd">        Initializes the publisher and subscriber and stores them in a global variable.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">global</span> <span class="n">poseVelocityPublisher</span><span class="p">,</span> <span class="n">poseVelocitySubscriber</span>
     <span class="n">poseVelocityPublisher</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">Publisher</span><span class="p">(</span><span class="s1">&#39;current_pose_velocity_publisher&#39;</span><span class="p">,</span> <span class="n">poseVelocity</span><span class="p">)</span>
